@@ -29,15 +29,18 @@ public class HomeController {
 	
 	
 	@GetMapping("/register")
-	public String registration(@ModelAttribute("fullname") String user) {
-		System.out.println(user);
+	public String registration() {
+		
 		return "register";
 	}
 	
-//	@PostMapping("/createUser")
-//	public String createUser(@ModelAttribute("user") User user,) {
-//		System.out.println(user);
-//		return "register";
-//	}
+	@PostMapping("/createUser")
+	public String createUser(@ModelAttribute("user") User user) {
+		System.out.println(user);
+		
+		userService.createUser(user);
+		return "register";
+	}
+
 
 }
