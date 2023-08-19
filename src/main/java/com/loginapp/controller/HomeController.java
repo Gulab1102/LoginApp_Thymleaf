@@ -1,11 +1,20 @@
 package com.loginapp.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+
+import com.loginapp.model.User;
+import com.loginapp.service.UserService;
 
 @Controller
 public class HomeController {
-	
+	@Autowired
+	private UserService userService;
 	
 	@GetMapping("/")
 	public String index() {
@@ -20,8 +29,15 @@ public class HomeController {
 	
 	
 	@GetMapping("/register")
-	public String registration() {
+	public String registration(@ModelAttribute("fullname") String user) {
+		System.out.println(user);
 		return "register";
 	}
+	
+//	@PostMapping("/createUser")
+//	public String createUser(@ModelAttribute("user") User user,) {
+//		System.out.println(user);
+//		return "register";
+//	}
 
 }
