@@ -31,6 +31,7 @@ public class HomeController {
 	@GetMapping("/register")
 	public String registration() {
 		
+		
 		return "register";
 	}
 	
