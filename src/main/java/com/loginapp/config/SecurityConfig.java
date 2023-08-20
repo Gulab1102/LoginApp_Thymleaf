@@ -41,15 +41,17 @@ public class SecurityConfig {
 			try {
 				csrf.disable()
 				.authorizeHttpRequests(authz->authz
-						.requestMatchers("/createUser","/register","/logout")
+						.requestMatchers("/createUser","/register")
 						.permitAll()
 						.anyRequest()
 						.authenticated())
 				.formLogin(login->login
 						.loginPage("/signin")
 						.loginProcessingUrl("/login")
-						.permitAll());
-			} catch (Exception e) {
+						.permitAll())
+				.logout(logout->logout.logoutUrl("/logout")
+				.permitAll());
+;			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
