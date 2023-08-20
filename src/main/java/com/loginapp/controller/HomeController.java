@@ -39,7 +39,7 @@ public class HomeController {
 		System.out.println(user);
 		
 		userService.createUser(user);
-		return "register";
+		return "redirect:/register";
 	}
 
 
