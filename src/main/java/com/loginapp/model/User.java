@@ -27,8 +27,13 @@ public class User {
 	
 	private String password;
 	
+	private String role;
 	
-	public User(int id, String fullname, String email, String address, String qualification, String password) {
+	
+	
+
+	public User(int id, String fullname, String email, String address, String qualification, String password,
+			String role) {
 		super();
 		this.id = id;
 		this.fullname = fullname;
@@ -36,6 +41,15 @@ public class User {
 		this.address = address;
 		this.qualification = qualification;
 		this.password = password;
+		this.role = role;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	public int getId() {
