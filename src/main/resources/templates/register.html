@@ -17,6 +17,11 @@
 					<div class="card-header text-center fs">
 						Register Page
 					</div>
+					<div th:if="${session.msg}">
+                     <p class="text-center" th:text="${session.msg}"></p>
+                     
+                    
+                 </div>
 					<div class="card-body mb-3">
 						<form action=""  th:action="@{/createUser}" method="post" >
 							<div>

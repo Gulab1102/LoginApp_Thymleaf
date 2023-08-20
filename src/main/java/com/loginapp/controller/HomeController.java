@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.loginapp.model.User;
 import com.loginapp.service.UserService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller
 public class HomeController {
 	@Autowired
@@ -36,12 +38,20 @@ public class HomeController {
 	}
 	
 	@PostMapping("/createUser")
-	public String createUser(@ModelAttribute("user") User user) {
-		System.out.println(user);
+	public String createUser(@ModelAttribute("user") User user,HttpSession session) throws InterruptedException {
+		//System.out.println(user);
+		
+		if(userService.checkEmail(user.getEmail())) {
+			System.out.println("UserName alraedy Exists!!");
+			session.setAttribute("msg", "UserName alraedy Exists!!");
+			return "redirect:/register";
+			
+		}
+		session.setAttribute("msg", "SuccessFull !!");
+		//session.setMaxInactiveInterval(1);
 		
 		userService.createUser(user);
 		return "redirect:/register";
 	}
-
 
 }
