@@ -16,6 +16,12 @@
 						<div class="card-header text-center fs">
 							Login Page
 						</div>
+						<div th:if="${param.error}" class="alert alert-danger">
+							Invalid username and Password
+						</div>
+						<div th:if="${param.logout}" class="alert alert-success">
+							Logout Successfull !!
+						</div>
 						<div class="card-body mb-3">
 							<form action="/login" method="post">
 								

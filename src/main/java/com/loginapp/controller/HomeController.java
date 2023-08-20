@@ -44,7 +44,7 @@ public class HomeController {
 		if(userService.checkEmail(user.getEmail())) {
 			System.out.println("UserName alraedy Exists!!");
 			session.setAttribute("msg", "UserName alraedy Exists!!");
-			return "redirect:/register";
+			return "register";
 			
 		}
 		session.setAttribute("msg", "SuccessFull !!");
